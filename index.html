@@ -24,7 +24,7 @@
         </div>
         <footer class="card-footer">
           <a class="card-footer-item">Edit</a>
-          <a class="card-footer-item">Done</a>
+          <a class="card-footer-item" @click="remove(card)">Done</a>
         </footer>
 
   </div>
@@ -46,7 +46,7 @@
           </div>
           <div class="control">
             <!-- this should only be visible if we are editing -->
-            <a class="button">Cancel</a>
+            <a class="button cancel" :class="{ 'visible' : todoTitle != '' || todoContent != ''}" @click="cancel">Cancel</a>
           </div>
         </section>
 

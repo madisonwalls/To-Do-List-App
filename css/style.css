@@ -5,3 +5,15 @@ section {
 .card {
   margin-top: 15px;
 }
+
+.cancel {
+
+  display: none;
+}
+
+.visible {
+
+  display: inline;
+  padding: 10px;
+  margin-top: 10px;
+}

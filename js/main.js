@@ -9,11 +9,13 @@ new Vue({
     todoTitle: '',
     todoContent: '',
     card: 'card',
+    
+
     items: [
 
       {
         titleContent: "ToDo Title",
-        cardContent: "My First ToDo Item"
+        cardContent: "My First ToDo Item",
 
       },
 
@@ -26,14 +28,29 @@ new Vue({
 
     this.items.push ({
       titleContent: this.todoTitle,
-      cardContent: this.todoContent
+      cardContent: this.todoContent,
+
     })
 
     this.todoTitle=''
     this.todoContent=''
 
+
   },
 
+  remove: function(doneItem) {
+
+    var index = this.items.indexOf(doneItem);
+    this.items.splice(index,1);
+
+  },
+
+    cancel: function() {
+
+      this.todoTitle='';
+      this.todoContent='';
+
+    },
 
 
   },
