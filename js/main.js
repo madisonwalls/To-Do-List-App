@@ -8,20 +8,33 @@ new Vue({
 
     todoTitle: '',
     todoContent: '',
-    item: []
+    card: 'card',
+    items: [
+
+      {
+        titleContent: "ToDo Title",
+        cardContent: "My First ToDo Item"
+
+      },
+
+    ]
   },
 
   methods: {
 
-    newCard: function() {
+    newToDo: function() {
 
-    this.item.push ({
-      content: this.todoTitle
-    });
+    this.items.push ({
+      titleContent: this.todoTitle,
+      cardContent: this.todoContent
+    })
 
-    this.todoTitle='';
+    this.todoTitle=''
+    this.todoContent=''
 
-    }
+  },
+
+
 
   },
 });
