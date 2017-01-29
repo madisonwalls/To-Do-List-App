@@ -9,13 +9,13 @@ new Vue({
     todoTitle: '',
     todoContent: '',
     card: 'card',
-    
+    editingItem: 'Edit',
 
     items: [
 
       {
-        titleContent: "ToDo Title",
-        cardContent: "My First ToDo Item",
+        titleContent: "Todo Title",
+        cardContent: "My First Todo Item",
 
       },
 
@@ -51,6 +51,14 @@ new Vue({
       this.todoContent='';
 
     },
+
+  edit: function() {
+
+    this.editingItem = 'Save';
+
+
+
+  },
 
 
   },

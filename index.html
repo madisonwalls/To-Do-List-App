@@ -9,34 +9,41 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div id="app" class="container">
 
-      <div class="column is-half is-offset-one-quarter content">
+<div id="app" class="container">
 
-        <section>
+ <div class="column is-half is-offset-one-quarter content">
 
-          <div v-for="(item, index) in items" :class='card'>
-          <div class='card-header'>
-          <p class='card-header-title'>{{ item.titleContent }}</p>
+  <section>
+
+<!--  New Todo Card -->
+    <div v-for="(item, index) in items" :class='card'>
+        <div class='card-header'>
+          <p class='card-header-title' :class="{'card-header-hide' : editingItem != 'Edit'}" >{{ item.titleContent }}</p>
+          <input type='text' :class="{'card-header-title' : editingItem != 'Edit'}" v-model="item.titleContent"></input>
         </div>
         <div class='card-content'>
           <p>{{ item.cardContent }}</p>
         </div>
         <footer class="card-footer">
-          <a class="card-footer-item">Edit</a>
+          <a class="card-footer-item" @click="edit()">{{ editingItem }}</a>
           <a class="card-footer-item" @click="remove(card)">Done</a>
         </footer>
 
-  </div>
+    </div>
 
-        </section>
+  </section>
 
+
+<!--Typing area for new cards -->
         <section>
           <label class="label">New Todo</label>
           <div class="control is-grouped">
             <div class="control is-expanded">
               <input type="text" class="input" placeholder="Todo Item Title" v-model="todoTitle"/>
             </div>
+
+            <!--Creates Card -->
             <div class="control">
               <a class="button is-primary" @click="newToDo">Create</a>
             </div>
@@ -45,13 +52,14 @@
             <textarea class="textarea" placeholder="Todo item content" v-model="todoContent"></textarea>
           </div>
           <div class="control">
-            <!-- this should only be visible if we are editing -->
+            <!-- Only visible if we are editing -->
             <a class="button cancel" :class="{ 'visible' : todoTitle != '' || todoContent != ''}" @click="cancel">Cancel</a>
           </div>
         </section>
 
-      </div>
-    </div>
+ </div>
+
+</div>
 
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="js/main.js" charset="utf-8"></script>
