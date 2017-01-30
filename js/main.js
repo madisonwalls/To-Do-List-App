@@ -9,7 +9,9 @@ new Vue({
     todoTitle: '',
     todoContent: '',
     card: 'card',
-    editingItem: 'Edit',
+    editingItem: true,
+    isEditing: false,
+    
 
     items: [
 
@@ -51,14 +53,6 @@ new Vue({
       this.todoContent='';
 
     },
-
-  edit: function() {
-
-    this.editingItem = 'Save';
-
-
-
-  },
 
 
   },

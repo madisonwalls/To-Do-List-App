@@ -19,14 +19,15 @@
 <!--  New Todo Card -->
     <div v-for="(item, index) in items" :class='card'>
         <div class='card-header'>
-          <p class='card-header-title' :class="{'card-header-hide' : editingItem != 'Edit'}" >{{ item.titleContent }}</p>
-          <input type='text' :class="{'card-header-title' : editingItem != 'Edit'}" v-model="item.titleContent"></input>
+          <p class='card-header-title' :class="{'card-header-hide' : editingItem != true}" >{{ item.titleContent }}</p>
+          <input type='text' :class="{'card-header-title' : editingItem != true}" v-model="item.titleContent"></input>
         </div>
         <div class='card-content'>
-          <p>{{ item.cardContent }}</p>
+          <p :class="{'hide' : editingItem != true}">{{ item.cardContent }}</p>
+          <input type='text' v-model="item.cardContent" :class="{'card-header-title' : editingItem != true}"></input>
         </div>
         <footer class="card-footer">
-          <a class="card-footer-item" @click="edit()">{{ editingItem }}</a>
+          <a class="card-footer-item" @click="editingItem = !editingItem">Edit</a>
           <a class="card-footer-item" @click="remove(card)">Done</a>
         </footer>
 

@@ -19,6 +19,18 @@ section {
 }
 
 
-input , .card-header-hide {
+
+
+input, .card-header-hide , .hide {
   display: none;
+}
+
+.card-content input {
+
+line-height: 1.25;
+max-height: 600px;
+min-height: 120px;
+min-width: 100%;
+padding: 10px;
+resize: vertical;
 }
