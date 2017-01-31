@@ -17,7 +17,7 @@
   <section>
 
 <!--  New Todo Card -->
-    <div v-for="(item, index) in items" :class='card'>
+    <div v-for="item in items" :class='card'>
         <div class='card-header'>
           <p class='card-header-title' :class="{'card-header-hide' : editingItem != true}" >{{ item.titleContent }}</p>
           <input type='text' :class="{'card-header-title' : editingItem != true}" v-model="item.titleContent"></input>
@@ -27,7 +27,7 @@
           <input type='text' v-model="item.cardContent" :class="{'card-header-title' : editingItem != true}"></input>
         </div>
         <footer class="card-footer">
-          <a class="card-footer-item" @click="editingItem = !editingItem">Edit</a>
+          <a class="card-footer-item" @click="editingItem = !editingItem">{{ editingItem ? 'Edit' : 'Save'}}</a>
           <a class="card-footer-item" @click="remove(card)">Done</a>
         </footer>
 
